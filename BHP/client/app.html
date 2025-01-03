@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Banglore Home Price Prediction</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="app.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .form {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .area, .location, .submit {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .switch-field {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .switch-field label {
+            background: #f3f4f6;
+            padding: 8px 8px;
+            border: 1px solid #ddd;
+            width: 47px;
+            border-radius: 4px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .switch-field input {
+            display: none;
+        }
+        .switch-field input:checked + label {
+            background: #59b77a;
+
+            color: #fff;
+        }
+        .submit {
+            background: #59b77a;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .submit:hover {
+            background: #3b9b5d;
+        }
+        .result {
+            background: #58b0f3;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <form class="form">
+        <h2>Area (Square Feet)</h2>
+        <input class="area" type="text" id="uiSqft" name="Squareft" value="1000">
+
+        <h2>BHK</h2>
+        <div class="switch-field">
+            <input type="radio" id="radio-bhk-1" name="uiBHK" value="1">
+            <label for="radio-bhk-1">1</label>
+            <input type="radio" id="radio-bhk-2" name="uiBHK" value="2" checked>
+            <label for="radio-bhk-2">2</label>
+            <input type="radio" id="radio-bhk-3" name="uiBHK" value="3">
+            <label for="radio-bhk-3">3</label>
+            <input type="radio" id="radio-bhk-4" name="uiBHK" value="3">
+            <label for="radio-bhk-4">4</label>
+            <input type="radio" id="radio-bhk-5" name="uiBHK" value="3">
+            <label for="radio-bhk-5">5</label>
+        </div>
+
+        <h2>Bath</h2>
+        <div class="switch-field">
+            <input type="radio" id="radio-bath-1" name="uiBathrooms" value="1">
+            <label for="radio-bath-1">1</label>
+            <input type="radio" id="radio-bath-2" name="uiBathrooms" value="2" checked>
+            <label for="radio-bath-2">2</label>
+            <input type="radio" id="radio-bath-3" name="uiBathrooms" value="3">
+            <label for="radio-bath-3">3</label>
+            <input type="radio" id="radio-bath-4" name="uiBathrooms" value="3">
+            <label for="radio-bath-4">4</label>
+            <input type="radio" id="radio-bath-5" name="uiBathrooms" value="3">
+            <label for="radio-bath-5">5</label>
+        </div>
+
+        <h2>Location</h2>
+        <select class="location" id="uiLocations">
+            <option value="" disabled selected>Choose a Location</option>
+            <option>Electronic City</option>
+            <option>Rajaji Nagar</option>
+        </select>
+
+        <button class="submit" onclick="onClickedEstimatePrice()" type="button">Estimate Price</button>
+        <div id="uiEstimatedPrice" class="result"></div>
+    </form>
+</body>
+</html>
